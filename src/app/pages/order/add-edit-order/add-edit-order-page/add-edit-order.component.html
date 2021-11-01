@@ -1,0 +1,41 @@
+<div class="container">
+    <mat-card class="example-card">
+        <mat-card-title>
+            {{type}} Order
+        </mat-card-title>
+        <mat-card-content>
+            <form class="example-form" [formGroup]="OrderForm" (ngSubmit)="submit()">
+                <mat-form-field class=" example-full-width" appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input type="text" matInput placeholder="Ex. Mickel" formControlName="name">
+                    <mat-error *ngIf="OrderForm.controls.name.hasError('required')">
+                        Name is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="OrderForm.controls.name.hasError('minLength')">
+                        Name must be more than 2 letters
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Price</mat-label>
+                    <input type="number" matInput formControlName="price">
+                    <mat-error *ngIf="OrderForm.controls.price.hasError('required')">
+                        Price is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="OrderForm.controls.price.hasError('min')">
+                        Price must be more than 4
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <input type="text" matInput formControlName="type">
+                    <mat-error *ngIf="OrderForm.controls.type.hasError('required')">
+                        Type is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-card-actions class="example-full-width" appearance="fill">
+                    <button mat-button type="submit">{{type}} Order</button>
+                </mat-card-actions>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

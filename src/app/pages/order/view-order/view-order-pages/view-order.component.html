@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>price</th>
+            <th>type</th>
+            <th>options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let res of orders">
+            <th>{{res.name}}</th>
+            <th>{{res.price}}</th>
+            <th>{{res.type}}</th>
+            <th>
+                <button type="button" class="btn btn-primary" (click)="edit(res._id)">Edit</button>
+                <button type="button" class="btn btn-danger" (click)="delete(res._id)">Delete</button>
+            </th>
+        </tr>
+    </tbody>
+</table>
